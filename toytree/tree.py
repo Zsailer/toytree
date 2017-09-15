@@ -835,7 +835,9 @@ def _add_nodes_to_axes(ttree, axes):
         ## color nodes
         if isinstance(ttree._kwargs["node_color"], list):
             nstyle["fill"] = ttree._kwargs["node_color"][nidx]
-
+        elif isinstance(ttree._kwargs["node_color"], str):
+            nstyle["fill"] = ttree._kwargs["node_color"]
+            
         ## create mark if text or node
         if (nlabel or nsize):
             mark = toyplot.marker.create(
@@ -957,4 +959,3 @@ def _add_tip_labels_to_axes(ttree, axes):
             vlshow=False,
             vsize=0,
             )
-
